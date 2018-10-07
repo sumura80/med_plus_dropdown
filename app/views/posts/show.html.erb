@@ -1,7 +1,14 @@
 <%= image_tag @post.image_url %>
 <h1><%= @post.title %></h1>
+	<p class="message-posted-by"><%= time_ago_in_words (@post.created_at) %> 前  <%= @post.user.username %> さんによって投稿されました。</p>
 <p><%= @post.description %></p>
 <p>written by <%= @post.user.username %></p>
+
+	<h3>Comments:</h3>
+	<%= render @post.comments %>
+
+	<h3 class="reply-to-message">Reply to Post:</h3>
+	<%= render 'comments/form' %>
 
 <%= link_to "Home", root_path %>
 <%= link_to "Edit", edit_post_path %>

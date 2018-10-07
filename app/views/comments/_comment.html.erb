@@ -1,0 +1,6 @@
+<p><%= comment.content %></p>
+<p class="message-posted-by"><%= time_ago_in_words(comment.created_at) %> 前 <%= comment.user.username %>  さんによって投稿されました。</p>
+
+<%= link_to "Edit", edit_post_comment_path(comment.post, comment) %>
+
+<%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, data:{confirm: "Are you sure?"} %>
