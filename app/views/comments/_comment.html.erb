@@ -1,6 +1,14 @@
+<!-- この_comment.html.erbは_formに記述した内容がpostsのshowページに表示される。 -->
+<div class="comments_box">
 <p><%= comment.content %></p>
-<p class="message-posted-by"><%= time_ago_in_words(comment.created_at) %> 前 <%= comment.user.username %>  さんによって投稿されました。</p>
+<p class="message-posted-by">Posted by <%= comment.user.username %> <%= time_ago_in_words(comment.created_at) %> ago</p>
 
-<%= link_to "Edit", edit_post_comment_path(comment.post, comment) %>
 
-<%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, data:{confirm: "Are you sure?"} %>
+	<% if user_signed_in? %>
+	 <% if comment.user_id == current_user.id %>
+		<%= link_to "Edit", edit_post_comment_path(comment.post, comment), class:"btn btn-link"  %>
+		<%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, data:{confirm: "Are you sure?"}, class:"btn btn-link"  %>
+		<% end %>
+	<% end %>
+
+</div>

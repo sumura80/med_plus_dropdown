@@ -16,3 +16,75 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body{
+	background-color: #EAECEE;
+}
+
+.message{
+	box-sizing: border-box;
+	background-color: #6EABB6;
+	margin-bottom: 25px;
+	margin-right: 10px;
+	margin-left: 10px;
+	padding:5px;
+	border-bottom: 4px solid #EE91F9;
+ 
+}
+
+.message-title{
+  margin-top: 0px;
+  margin-bottom:25px;
+
+}
+
+/*index.html 全体を真ん中に寄せる*/
+.center {
+	text-align:center;
+}
+
+
+/*/posts/show.html 全体の装飾　*/
+.message-show{
+	background-color: #F4F6F6;
+	box-sizing: border-box;
+	padding:15px;
+	font-size: 1.2em;
+}
+
+.message-posted-by{
+	font-size: 0.9em;
+}
+
+.reply-to-message{
+	padding-top: 15px;
+}
+
+
+.btn-group{
+padding-top: 10px;
+
+}
+
+/*/posts/showページの画像を大きくする*/
+.show-pic-size{
+	width: 330px;
+	height: 240px;
+	
+	}
+
+/* comments/_comment.html コメントの装飾　*/
+.comments_box{
+	background-color: #F4F8F9;
+	padding:10px;
+	border: 1px solid #7FC8DC;
+	margin-top: 30px;
+}
+
+/* comments/_comment.html postボタン　*/
+.post-btn{
+	width: 120px;
+	height: 40px;
+	font-size: 18px;
+}
+
