@@ -1,5 +1,6 @@
 <h1><%= @post.title %></h1>
 <p><%= @post.description %></p>
+<p>written by <%= @post.user.username %></p>
 
 <%= link_to "Home", root_path %>
 <%= link_to "Edit", edit_post_path %>
