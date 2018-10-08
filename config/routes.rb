@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   end
 
   #userのshowページ作成URL
-  resources :users, only:[:show]
+  resources :users, only:[:show, :edit, :update]
   root 'posts#index'
 end
