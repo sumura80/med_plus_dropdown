@@ -6,16 +6,25 @@
 			<h2><%= @post.title %></h2>
 			<p class="message-posted-by">Posted by <%= @post.user.username %> <%= time_ago_in_words (@post.created_at) %> ago </p>
 		</div><!-- end of col-md-4 -->
-    <div class="visible-xs visible-sm" style="height:30px;"></div>
+    <div class="visible-xs" style="height:30px;"></div>
 
 
       <!-- ここからshowの右画面 -->
     <div class="col-xs-12 col-sm-6 col-sm-offset-2 col-md-offset-1 col-md-6">
-				<p><%= @post.description %></p>
+    		<!-- 改行を反映させるためのコマンド↓ -->   		
+				<p><%= h(@post.description).gsub(/\n/, '<br/>').html_safe %></p>
 		</div><!-- end of col-md-7 col-md-offset-1 -->
 	</div><!-- row -->
 
 <br><hr>
+
+
+
+
+
+
+
+
 	
 	<h3>Comments:</h3>
 	<%= render @post.comments %>

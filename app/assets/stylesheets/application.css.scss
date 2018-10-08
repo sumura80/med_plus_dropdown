@@ -23,13 +23,13 @@ body{
 
 .message{
 	box-sizing: border-box;
-	background-color: #6EABB6;
+	background-color: #927A95;
 	margin-bottom: 25px;
 	margin-right: 10px;
 	margin-left: 10px;
 	padding:5px;
-	border-bottom: 4px solid #EE91F9;
- 
+	border-bottom: 4px solid #0BB523;
+ 	border-radius: 0;
 }
 
 .message-title{
@@ -49,7 +49,6 @@ body{
 	background-color: #F4F6F6;
 	box-sizing: border-box;
 	padding:15px;
-	font-size: 1.2em;
 }
 
 .message-posted-by{
@@ -94,4 +93,9 @@ padding-top: 10px;
     display: flex;
     flex-wrap: wrap;
 
+}
+
+/*navbarのradiusを消して丸みを無くした*/
+.navbar {
+	border-radius: 0;
 }

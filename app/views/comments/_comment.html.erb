@@ -1,8 +1,9 @@
 <!-- この_comment.html.erbは_formに記述した内容がpostsのshowページに表示される。 -->
 <div class="comments_box">
-<p><%= comment.content %></p>
+	<!-- 改行を反映させるためのコマンド↓ -->   	
+<p><%= h(comment.content).gsub(/\n/, '<br/>').html_safe %></p>
 <p class="message-posted-by">Posted by <%= comment.user.username %> <%= time_ago_in_words(comment.created_at) %> ago</p>
-
+ 
 
 	<% if user_signed_in? %>
 	 <% if comment.user_id == current_user.id %>
