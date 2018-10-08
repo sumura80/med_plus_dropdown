@@ -88,3 +88,10 @@ padding-top: 10px;
 	font-size: 18px;
 }
 
+
+/*indexページのボックスを綺麗に並べるcss index のrowに記述ずみ	*/
+.row-eq-height {
+    display: flex;
+    flex-wrap: wrap;
+
+}
