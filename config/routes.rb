@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   resources :posts do 
   	resources :comments
   end
+
+  #userのshowページ作成URL
+  resources :users, only:[:show, :edit, :update]
   root 'posts#index'
 end
