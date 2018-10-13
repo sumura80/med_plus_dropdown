@@ -2,7 +2,7 @@
 <br>
 	<div class="row">
 	  <div class="col-xs-12 col-sm-4 col-md-4">
-		 <%= image_tag @post.image_url,class:"show-pic-size"  %>
+		 <%= image_tag @post.image_url,class:"show-pic-size" %>
 			<h2><%= @post.title %></h2>
 			<p class="message-posted-by">Posted by <%= @post.user.username %> <%= time_ago_in_words (@post.created_at) %> ago </p>
 		</div><!-- end of col-md-4 -->

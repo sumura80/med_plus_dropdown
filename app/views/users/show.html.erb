@@ -1,14 +1,14 @@
 <h1>Account Page</h1>
  
 <br>
-	<div class="row">
+ 	<div class="row">
 	  <div class="col-xs-12 col-sm-3 col-md-3">
 	   <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
      <% if @user.user_image? %>
-     
+      <% @user.user_image %>
      <% else %>
 
-     	<!-- なぜか下記のデフォルも表示されない。 -->
+     <!-- なぜか下記のデフォルも表示されない。 -->
       <%= image_tag("/images/default_user_image.png") %>	
      <% end %><br><br>
      <%= link_to "画像変更", edit_user_path,class:"btn btn-success"%>

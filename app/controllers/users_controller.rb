@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		if @user.update(user_params)
 			flash[:notice] = "Your image was successfully updated"
-			redirect_to user_path
+			redirect_to user_path(@user)
 		else
 			render 'edit'
 		end
