@@ -16,7 +16,23 @@
 		</div><!-- end of col-md-7 col-md-offset-1 -->
 	</div><!-- row -->
 
-<br><hr>
+<br>
+		<!--ここから日本語を表示するためのアコーディオンを追加 -->
+		<div class="panel-group">
+		  <div class="panel panel-info">
+		    <div class="panel-heading comment-jp-heading" >
+		      <h4 class="panel-title panel-title-jp" data-toggle="collapse" href="#sample1-med">
+		        <p>Japanese description</p>
+		      </h4>
+		    </div><!-- end of heading -->
+
+		    <div id="sample1-med" class="panel-collapse collapse">
+		      <div class="panel-body">This is an example sentence to test if tis accordion button and function works properly.</div>
+		    </div>
+
+		  </div><!-- end of panel info -->
+		</div>
+	<hr>
 
 
 
@@ -31,6 +47,8 @@
 
 	<h3 class="reply-to-message">Reply to Post:</h3>
 	<%= render 'comments/form' %>
+
+
 
 
 	<div class="btn-group">
