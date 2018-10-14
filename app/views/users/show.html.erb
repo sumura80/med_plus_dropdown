@@ -5,15 +5,15 @@
 	  <div class="col-xs-12 col-sm-3 col-md-3">
 	   <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
      <% if @user.user_image? %>
-      <%= @user.user_image %>
+      <%= image_tag @user.user_image_url %>
      <% else %>
-
-     <!-- なぜか下記のデフォルも表示されない。 -->
-      <%= image_tag("/images/default_user_image.png") %>	
+     <!-- デフォル時の表示 -->
+      <%= image_tag("default_user_image.png",class:"default_image_size img-responsive")%>	
      <% end %><br><br>
-     <%= link_to "画像変更", edit_user_path,class:"btn btn-success"%>
+     <%= link_to "画像変更", edit_user_path,class:"btn btn-success def-img-btn"%>
+     <br><br>
 		</div><!-- end of col-md-4 -->
-
+    
 		
     <div class="visible-xs" style="height:30px;"></div>
 
@@ -29,3 +29,9 @@
 	<div style="border-bottom: 2px solid blue"></div>
 
 <br>
+
+
+
+
+
+
