@@ -5,6 +5,11 @@
 		 <%= image_tag @post.image_url,class:"show-pic-size" %>
 			<h2><%= @post.title %></h2>
 			<p class="message-posted-by">Posted by <%= @post.user.username %> <%= time_ago_in_words (@post.created_at) %> ago </p>
+			
+				<!-- Likeボタンのコード/likeボタンの部分を_likes.html.erbにrender	 Start ↓ -->
+			  <%= render partial: '/likes/likes', locals: {post: @post} %>
+			  <!-- Likeボタンのコード	 End -->
+
 		</div><!-- end of col-md-4 -->
     <div class="visible-xs" style="height:30px;"></div>
 
