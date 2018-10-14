@@ -75,7 +75,17 @@ padding-top: 10px;
 	background-color: #F4F8F9;
 	padding:10px;
 	border: 1px solid #7FC8DC;
-	margin-top: 30px;
+	margin-top: 20px;
+}
+
+.comments_box_user{
+	background-color: #F4F8F9;
+	padding:10px;
+	border: 1px solid #7FC8DC;
+	margin-top: 10px;
+}
+.comments_box_content{	
+	font-size: 16px;
 }
 
 /* comments/_comment.html postボタン　*/
@@ -135,6 +145,14 @@ padding-top: 10px;
 	margin-left: 60px;
 }
 
+/*headerの自己紹介画像*/
+.header-circle-img{
+	width:30px;
 
+}
 
+/*header上下真ん中に来るバランス*/
+.navbar-nav > li > a{
+	line-height: 25px;
+}
 

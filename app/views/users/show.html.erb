@@ -29,8 +29,12 @@
 	<div style="border-bottom: 2px solid blue"></div>
 
 <br>
-
-
+ <% @comments.each do |comment| %>
+ <div class="comments_box_user">
+  <p class="comments_box_content"><%= comment.content %></p>
+  <p class="message-posted-by">Posted  <%= time_ago_in_words (comment.created_at) %> ago </p>
+</div>
+ <% end %>
 
 
 
