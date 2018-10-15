@@ -30,12 +30,26 @@
 
 <br>
  <% @comments.each do |comment| %>
- <div class="comments_box_user">
-  <p class="comments_box_content"><%= comment.content %></p>
-  <p class="message-posted-by">Posted  <%= time_ago_in_words (comment.created_at) %> ago </p>
+ <div class="comments_box_user ">
+  <div class="row">
+    <div class="col-xs-3 col-sm-1">
+       <% if @user.user_image? %>
+         <%= image_tag @user.user_image_url,class:"img-circle img-responsive comment_pic " %>
+       <% else %>
+         <!-- デフォル時の表示 -->
+         <%= image_tag("default_user_image.png",class:"img-circle img-responsive comment_pic ")%>
+       <% end %>
+    </div>
+
+     <div class="col-xs-9 col-sm-11">
+      <p class="comments_box_content"><%= comment.content %></p>
+      <p class="message-posted-by">Posted  <%= time_ago_in_words (comment.created_at) %> ago </p>
+    </div>
+  </div><!-- end of row of comment box -->
+  
 </div>
  <% end %>
-
+<br><br><br>
 
 
 

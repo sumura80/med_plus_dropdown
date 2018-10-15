@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@comments = Comment.order("created_at DESC")
+		@comments = Comment.order("created_at DESC").where(user_id: @user.id)
 	end
 
 	def edit
