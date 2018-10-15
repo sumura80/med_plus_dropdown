@@ -14,4 +14,6 @@ class VotesController < ApplicationController
     @comment = vote.comment
     vote.destroy
   end
+
+  
 end

@@ -1,5 +1,5 @@
 module CommentsHelper
 	def votes_counter(votes)
-	votes.count
+	  votes.count
 	end
 end
