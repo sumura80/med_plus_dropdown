@@ -1,21 +1,22 @@
 <!-- showのvoteボタンの部分をrenderで対応するためのView -->
 <% if comment.vote_user(current_user) %>
  <div id="vote-button">
-   <%= link_to post_comment_vote_path(@post.id,comment.id, 1), method: :delete, remote: true do %>
+   <%= link_to post_comment_vote_path(@post.id,comment.id, 1), method: :delete, remote: true, class: "vote-#{comment.id}" do %>
+   <!-- link_toで作られるブロックにオプションで class: "vote-#{commnet.id}" とすることで各コメントのhtml要素に別個のプロパティを与える。これによりhtml要素を書き換える、今回ではどの投票ボタンの色を変えるか？をjs側で判断できるようになる。 -->
 <!-- remote trueを利用することでcontrollerの処理が終わったあとにjs.erbを起動させる。 -->
-   <span class="fa fa-thumbs-o-up vote-btn-donwvote" id="vote-btn-donwvote">
-    </span>
+   <span class="fa fa-thumbs-o-up vote-btn-donwvote" id="vote-btn-donwvote"></span>
+    <%= comment.votes_count %>   
   <% end %>
-  	<%= comment.votes_count %>      
   </div>
 
 <% else %>
 
   <div id="vote-button">
-    <%= link_to post_comment_votes_path(@post.id,comment.id), method: :post, remote: true do %>
+    <%= link_to post_comment_votes_path(@post.id,comment.id), method: :post, remote: true,class: "vote-#{comment.id}" do %>
       <span class="fa fa-thumbs-o-up vote-btn" id="vote-btn"></span>
+     <%= comment.votes_count %>
     <% end %>
-    <%= comment.votes_count %>
+
   </div>
   
 <% end %>
