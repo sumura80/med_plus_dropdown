@@ -1,9 +1,9 @@
 <h3>Index page</h3>
- 
+ <h3><%= params[:category] %></h3>
  <div class="center">
   <div class="row row-eq-height">
     <% if @posts.count == 0 %>
-    <h3>There are posts in this category yet </h3>
+    <h3>There are no posts in this category yet </h3>
     <% else %>
     <% @posts.each do |post| %>
       <div class="col-xs-6 col-sm-3 col-md-3">

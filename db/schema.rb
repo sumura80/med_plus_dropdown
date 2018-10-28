@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181014060215) do
+ActiveRecord::Schema.define(version: 20181028032714) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -18,6 +24,7 @@ ActiveRecord::Schema.define(version: 20181014060215) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "votes_count", default: 0
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -37,6 +44,7 @@ ActiveRecord::Schema.define(version: 20181014060215) do
     t.string "image"
     t.integer "user_id"
     t.integer "likes_count", default: 0
+    t.integer "category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,6 +59,13 @@ ActiveRecord::Schema.define(version: 20181014060215) do
     t.string "user_image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

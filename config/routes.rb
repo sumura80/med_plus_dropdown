@@ -6,6 +6,13 @@ Rails.application.routes.draw do
   	resources :likes, only: [:create, :destroy]
   end
 
+
+  root 'categories#index'
+  
+  get 'categories/dogs' ,to: 'categories#dogs'
+  get 'categories/cats' ,to: 'categories#cats'
+  get 'categories/rabbits' ,to: 'categories#rabbits'
+
   #userのshowページ作成URL
   resources :users, only:[:show, :edit, :update]
   root 'posts#index'
