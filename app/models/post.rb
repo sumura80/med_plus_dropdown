@@ -5,7 +5,8 @@ class Post < ApplicationRecord
 	#has_many :likes
 	has_many :likes, dependent: :destroy	
 	belongs_to :category
-	
+
+
 
 # 　	def like_user(user)
 #    likes.find_by(user_id: user)
