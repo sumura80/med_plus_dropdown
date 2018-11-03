@@ -1,0 +1,6 @@
+$("<%= @vote_class %>").html("<%= j(render partial: 'votes/votes', locals: {comment: @comment}) %>")
+// render部分だけ切り替え、非同期処理のため。destroyも同様。
+// #vote_buttonとしてしまうと、すべてのdivに同じidが振られてしまうため
+// どのコメントのhtml要素を変更していいのかJSが判断できない。
+// そのため、各voteボタンが付いているが
+// どのコメントのhtml要素に紐付いてるかをview側で教えてあげる必要がある。
