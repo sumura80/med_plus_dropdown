@@ -40,7 +40,8 @@ gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'mini_magick'
 # rails で jqueryを使えるようにするgem
 gem 'rails-ujs'
-
+#↓論理削除を簡単にするgem
+gem 'paranoia', '~> 2.4', '>= 2.4.1'
 
 
 group :development, :test do

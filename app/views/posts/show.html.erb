@@ -4,7 +4,13 @@
 	  <div class="col-xs-12 col-sm-4 col-md-4">
 		 <%= image_tag @post.image_url,class:"show-pic-size" %>
 			<h2><%= @post.title %></h2>
-			<p class="message-posted-by">Posted by <%= @post.user.username %> <%= time_ago_in_words (@post.created_at) %> ago </p>
+			<p class="message-posted-by">Posted by 
+				<% if @post.user.deleted_at %>
+				<p>"deleted user"</p>
+				<% else %>
+				<%= @post.user.username %>
+				<% end %>
+				 <%= time_ago_in_words (@post.created_at) %> ago </p>
 				<p>種類: <%= @post.category.name %></p>
 			
 				<!-- Likeボタンのコード/likeボタンの部分を_likes.html.erbにrender	 Start ↓ -->

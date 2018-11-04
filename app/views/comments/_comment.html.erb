@@ -2,7 +2,17 @@
 <div class="comments_box">
 	<!-- 改行を反映させるためのコマンド↓ -->   	
 <p><%= h(comment.content).gsub(/\n/, '<br/>').html_safe %></p>
-<p class="message-posted-by">Posted by <%= comment.user.username %> <%= time_ago_in_words(comment.created_at) %> ago</p>
+<p class="message-posted-by">Posted by 
+
+		<% if @post.user.deleted_at %>
+		  <p>"deleted user"</p>
+		<% else %>
+		  <%= @post.user.username %>
+		<% end %>
+
+
+
+ <%= time_ago_in_words(comment.created_at) %> ago</p>
 <!-- voteボタンの部分を_votes.html.erbにrender  postsの中のコメントなので、＠インスタンス変数は使わない-->
  <%= render partial: '/votes/votes', locals: {comment: comment} %>
 

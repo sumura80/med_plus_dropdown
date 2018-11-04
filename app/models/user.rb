@@ -8,4 +8,9 @@ class User < ApplicationRecord
   has_many :likes
   has_many :votes
   mount_uploader :user_image, ImageUploader
+  
+ #↓論理削除をするためのparanoiaの導入
+  acts_as_paranoid
+  
+
 end
