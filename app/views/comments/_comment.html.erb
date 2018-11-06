@@ -4,11 +4,11 @@
 <p><%= h(comment.content).gsub(/\n/, '<br/>').html_safe %></p>
 <p class="message-posted-by">Posted by 
 
-		<% if @post.user.deleted_at %>
-		  <p>"deleted user"</p>
-		<% else %>
-		  <%= @post.user.username %>
-		<% end %>
+<% if comment.user.blank? %>
+   <%= "deleted user" %>
+<% else %>
+   <%= comment.user.username %>
+<% end %>
 
 
 
