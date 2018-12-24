@@ -1,24 +1,9 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
-@import "bootstrap-sprockets";
+// Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
 body{
 	background-color: #EAECEE;
+	font-family: 'Raleway', sans-serif;
 }
 
 .message{
@@ -65,7 +50,7 @@ padding-top: 10px;
 
 /*/posts/showページの画像を大きくする*/
 .show-pic-size{
-	width: 330px;
+  width: 330px;
 	height: 240px;
 	
 	}
@@ -135,7 +120,8 @@ padding-top: 10px;
 	color: #ff2581;	
 }
 
-/*Accountページの自己紹介ページ*/
+/*Accountページの自己紹介ページ
+Bootstrap4からは、img-thumbnailを使用することにした*/
 .default_image_size{
 	max-width: 200px;
 	height: auto;
@@ -172,3 +158,35 @@ padding-top: 10px;
 	color: #ff2581;
 }
 /*voteボタンの終了*/
+
+
+
+
+
+
+
+
+
+
+
+/*---Media Queries --*/
+/*Extra Small (XS) 縦向きモバイル – 576px 以下*/
+@media (max-width: 576px) {
+  
+}
+
+/*Small (sm) 横向きモバイル 576px から 768px まで*/
+@media (max-width: 768px) {
+  
+}
+
+/*Medium (md) タブレット 768px から 992px まで*/
+@media (max-width: 992px) {
+
+  }
+
+/*Medium (lg) デスクトップ, 1200px まで*/
+@media (max-width: 1200px) { 
+
+}
+

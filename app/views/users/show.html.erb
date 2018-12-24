@@ -2,24 +2,24 @@
  
 <br>
  	<div class="row">
-	  <div class="col-xs-12 col-sm-3 col-md-3">
+	  <div class="col-md-3">
 	   <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+    
      <% if @user.user_image? %>
       <%= image_tag @user.user_image_url %>
      <% else %>
-     <!-- デフォル時の表示 -->
-      <%= image_tag("default_user_image.png",class:"default_image_size img-responsive")%>	
+     <!-- デフォル時の表示 以前は、default_image_size -->
+      <%= image_tag("default_user_image.png",class:"img-thumbnail")%>	
      <% end %><br><br>
      <%= link_to "画像変更", edit_user_path,class:"btn btn-success def-img-btn"%>
      <br><br>
 		</div><!-- end of col-md-4 -->
     
 		
-    <div class="visible-xs" style="height:30px;"></div>
 
 
       <!-- ここからshowの右画面 -->
-    <div class="col-xs-12 col-sm-7 col-sm-offset-2 col-md-offset-1 col-md-7">
+    <div class="col-md-8 offset-md-1 mb-4">
     		<h2>Username: <%= @user.username %></h2>
 				<h2>Email: <%= @user.email %></h2>
 		</div><!-- end of col-md-7 col-md-offset-1 -->
@@ -31,20 +31,21 @@
 <br>
  <% @comments.each do |comment| %>
  <div class="comments_box_user ">
-  <div class="row">
-    <div class="col-xs-3 col-sm-1">
+  <div class="row"><!--colを使わなかったのでrow出なくてもいいかもしれない。-->
+
+      <div class="media"><!-- media object -->
        <% if @user.user_image? %>
-         <%= image_tag @user.user_image_url,class:"img-circle img-responsive comment_pic " %>
+         <%= image_tag @user.user_image_url,class:"comment_pic " %>
        <% else %>
          <!-- デフォル時の表示 -->
-         <%= image_tag("default_user_image.png",class:"img-circle img-responsive comment_pic ")%>
+         <%= image_tag("default_user_image.png",class:"comment_pic mx-3 ")%>
        <% end %>
-    </div>
+      <div class="media-body pl-2">
+        Posted  <%= time_ago_in_words (comment.created_at) %> ago 
+        <p class="pr-3"><%= comment.content %></p>
+      </div>
+    </div><!-- end of media object -->
 
-     <div class="col-xs-9 col-sm-11">
-      <p class="comments_box_content"><%= comment.content %></p>
-      <p class="message-posted-by">Posted  <%= time_ago_in_words (comment.created_at) %> ago </p>
-    </div>
   </div><!-- end of row of comment box -->
   
 </div>

@@ -35,13 +35,19 @@ gem 'jbuilder', '~> 2.5'
 
 
 gem 'devise', '~> 4.5'
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+#gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'mini_magick'
+
+#BootstrapはjQueryに依存するため、
+#(デフォルトでjQueryがインストールされない)Rails5.1以上ではjquery-railsもGemfileに追記する。
+gem 'bootstrap', '~> 4.1', '>= 4.1.3'
+gem 'jquery-rails'
 # rails で jqueryを使えるようにするgem
 gem 'rails-ujs'
 #↓論理削除を簡単にするgem
 gem 'paranoia', '~> 2.4', '>= 2.4.1'
+
 
 
 group :development, :test do

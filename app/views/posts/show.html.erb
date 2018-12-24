@@ -1,11 +1,11 @@
 <div class="message-show">
-<br>
+
 	<div class="row">
-	  <div class="col-xs-12 col-sm-4 col-md-4">
-		 <%= image_tag @post.image_url,class:"show-pic-size" %>
+	  <div class="col-md-4">
+		 <%= image_tag @post.image_url,class:"show-pic-size img-fluid" %>
 			<h2><%= @post.title %></h2>
-			<p class="message-posted-by">Posted by <%= @post.user.username %>
-				 <%= time_ago_in_words (@post.created_at) %> ago </p>
+			<!-- <p class="message-posted-by">Posted by <%= @post.user.username %>
+				 <%= time_ago_in_words (@post.created_at) %> ago </p> -->
 				<p>種類: <%= @post.category.name %></p>
 			
 				<!-- Likeボタンのコード/likeボタンの部分を_likes.html.erbにrender	 Start ↓ -->
@@ -13,11 +13,11 @@
 			  <!-- Likeボタンのコード	 End -->
 
 		</div><!-- end of col-md-4 -->
-    <div class="visible-xs" style="height:30px;"></div>
+
 
 
       <!-- ここからshowの右画面 -->
-    <div class="col-xs-12 col-sm-6 col-sm-offset-2 col-md-offset-1 col-md-6">
+    <div class="col-md-7 offset-md-1">
     		<!-- 改行を反映させるためのコマンド↓ -->   		
 				<p><%= h(@post.description).gsub(/\n/, '<br/>').html_safe %></p>
 		</div><!-- end of col-md-7 col-md-offset-1 -->
@@ -25,36 +25,22 @@
 
 <br>
 		<!--ここから日本語を表示するためのアコーディオンを追加 -->
-		<div class="panel-group">
-		  <div class="panel panel-info">
-		    <div class="panel-heading comment-jp-heading" >
-		      <h4 class="panel-title panel-title-jp" data-toggle="collapse" href="#sample1-med">
-		        <p>Japanese description</p>
-		      </h4>
-		    </div><!-- end of heading -->
-
-		    <div id="sample1-med" class="panel-collapse collapse">
-		      <div class="panel-body">This is an example sentence to test if tis accordion button and function works properly.</div>
-		    </div>
-
-		  </div><!-- end of panel info -->
+			<p>
+		  <a class="btn btn-outline-info btn-block" data-toggle="collapse" href="#jp-description" role="button" aria-expanded="false" aria-controls="jp-description">
+		    See Japanese
+		  </a>
+		  
+		</p>
+		<div class="collapse" id="jp-description">
+		  <div class="card card-header">
+		    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis quasi perferendis accusantium aliquid iusto cupiditate! Est voluptate maxime modi, totam quis optio aspernatur esse excepturi dolore reiciendis consectetur officiis assumenda.
+		  </div>
 		</div>
-	<hr>
 
 
-	
 
-	<p>
-		<a class="btn btn-default" data-toggle="collapse" href="#collapseSample100">
-			表示／非表示
-		</a>
-　</p>
 
-	<div id="collapseSample100" class="collapse">
-		<div class="well">
-			表示したり、折り畳んだりできるコンテンツ。
-		</div>
-	</div>
+	<hr class="my-4">
 
 
 
@@ -71,13 +57,12 @@
 	<h3 class="reply-to-message">Reply to Post:</h3>
 	<%= render 'comments/form' %>
 
-
-
+	
 
 	<div class="btn-group">
-			<%= link_to "Home", root_path, class:"btn btn-default" %>
+			<%= link_to "Home", root_path, class:"btn btn-secondary" %>
 			<% if user_signed_in? %>
-				<% if @post.user_id == current_user.id %>
+				<% if current_user.admin? %>
 					<%= link_to "Edit", edit_post_path(@post), class:"btn btn-success" %>
 					<%= link_to "Delete", post_path(@post),method: :delete,data:{confirm: "Are you sure?"} , class:"btn btn-danger"%>
 				<% end %>

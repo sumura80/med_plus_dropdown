@@ -7,6 +7,9 @@ class Post < ApplicationRecord
 	#	論理削除のため、dependent: :destroyをコメント会おうtした
 	belongs_to :category
 
+	
+	
+
 
 
 # 　	def like_user(user)

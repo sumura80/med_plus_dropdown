@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
 	before_action :find_comment ,only:[:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
 
+
 	def new
     @comment = Comment.new
   end
@@ -19,18 +20,22 @@ class CommentsController < ApplicationController
 		if @comment.save
 			redirect_to post_path(@post)
 		else
-			render  post_path(@post)
+			# render post_path(@post)
+			 #VIEWしか返さないため、@comments_by_votesを取得しないとエラーになる。
+        @comments_by_votes = @post.comments.order_by_voute_count
+        render 'posts/show'
 		end
 	end
 
 	def edit
+		
 	end
 
 	def update
 		if @comment.update(comment_params)
 			redirect_to post_path(@post)
 		else
-			render 'new'
+			render 'edit'
 		end
 		
 	end
@@ -56,6 +61,14 @@ class CommentsController < ApplicationController
 
 	def find_comment
 		@comment = @post.comments.find(params[:id])
+	end
+
+
+	# これは使っていない
+	def check_user 
+		unless current_user.admin?
+			redirect_to root_path, alert:"Sorry, only Administrator can edit."
+		end
 	end
 
 
