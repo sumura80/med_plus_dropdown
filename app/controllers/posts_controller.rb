@@ -64,7 +64,7 @@ class PostsController < ApplicationController
   	@post = Post.find(params[:id])
   end
 
-  	def check_user
+  def check_user
 		unless current_user.admin?
 			flash[:alert] = "Sorry, only Administrator can edit"
 			redirect_to root_path
